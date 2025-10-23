@@ -1,301 +1,361 @@
+:root {
+  --accent: #d12a08;
+  --dark: #0f0f0f;
+  --card: #ffffff;
+  --muted: #666;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
 body {
-  font-family: "Poppins", sans-serif;
-  background: #f7f3f0;
+  height: 100%;
   margin: 0;
-  padding: 0;
+  font-family: Poppins, system-ui, Arial;
+  background: #f6f4f2;
+  color: var(--dark);
 }
 
 header {
-  text-align: center;
-  background: #6f4e37;
-  color: white;
-  padding: 20px 0;
-  border-radius: 0 0 20px 20px;
-}
-
-main {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-}
-
-button {
-  background: #6f4e37;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background: #523625;
-}
-
-.hidden {
-  display: none;
-}
-
-.list-section {
-  padding: 10px;
-}
-
-.product-card {
-  background: white;
-  border-radius: 12px;
-  padding: 15px;
-  margin: 10px auto;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 90%;
-  max-width: 320px;
-  transition: 0.3s;
-}
-
-.product-card:hover {
-  transform: scale(1.03);
-}
-
-/* ==== Gambar Menu (tanpa file eksternal) ==== */
-.product-img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin: 0 auto 10px auto;
-  background-size: cover;
-  background-position: center;
-  border: 2px solid #6f4e37;
-}
-
-/* Gaya khusus tiap menu */
-.Matchalatte {
-  background: url("menu/Matchalatte.png") no-repeat center;
-  background-size: contain;
-}
-
-.Americanoice {
-  background: url("menu/Americanoice.png") no-repeat center;
-  background-size: contain;
-}
-
-.Butterscothseasalt {
-  background: url("menu/Butterscothseasalt.png") no-repeat center;
-  background-size: contain;
-}
-
-.Caramelsalted {
-  background: url("menu/Caramelsalted.png") no-repeat center;
-  background-size: contain;
-}
-
-.Chocolatte {
-  background: url("menu/Chocolatte.png") no-repeat center;
-  background-size: contain;
-}
-
-.KopisusudisellKSD {
-  background: url("menu/KopisusudisellKSD.png") no-repeat center;
-  background-size: contain;
-}
-
-.Matchacoconut {
-  background: url("menu/Matchacoconut.png") no-repeat center;
-  background-size: contain;
-}
-
-.Thaitea {
-  background: url("menu/Thaitea.png") no-repeat center;
-  background-size: contain;
-}
-
-.Vanillalatte {
-  background: url("menu/Vanillalatte.png") no-repeat center;
-  background-size: contain;
-}
-
-.card-buttons {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.qr-reader {
-  width: 100%;
-  max-width: 350px;
-  margin: 15px auto;
-  display: none;
-}
-
-.scan-result {
-  text-align: center;
-  margin-top: 10px;
-  font-weight: bold;
-  color: #6f4e37;
-}
-.barcode-container {
-  width: 120px;
-  height: 120px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-}
-
-.barcode-container canvas {
-  width: 120px !important;
-  height: 120px !important;
-}
-
-/* Grid untuk menampilkan menu 3 per baris */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-  justify-content: center;
-  padding: 20px;
-}
-
-.product-card {
-  background: #1a1a1a;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
-  text-align: center;
-  color: #cc1616;
-  transition: transform 0.2s ease;
-}
-.product-card:hover {
-  transform: scale(1.03);
-}
-/* Gambar produk */
-.product-img {
-  width: 100%;
-  height: 180px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  background-color: rgb(255, 64, 0);
-}
-/* Tombol */
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 12px;
-  margin-top: 6px;
-  background: #d12a08;
+  background: var(--accent);
   color: #fff;
-  font-weight: bold;
-  transition: background 0.2s ease;
+  padding: 18px 16px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
-button:hover {
-  background: #ff3b1f;
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-button.small {
-  font-size: 12px;
-  padding: 6px 10px;
+.header-inner h1 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+.header-inner p {
+  margin: 0;
+  opacity: 0.95;
+}
+.header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+button,
+.upload-btn {
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
 }
 button.danger {
   background: #b30000;
+  color: #fff;
 }
-button.danger:hover {
-  background: #ff0000;
-}
-
-/* Detail tersembunyi */
-.info {
-  background: #f0ebe9;
-  padding: 8px;
-  border-radius: 8px;
-  margin-top: 5px;
-  font-size: 14px;
+.upload-btn input {
+  display: none;
 }
 
-.expand-btn {
-  margin-top: 5px;
-  background: #8b5e3c;
-  font-size: 14px;
-  padding: 6px 10px;
-  border-radius: 6px;
+/* main layout */
+main {
+  max-width: 1100px;
+  margin: 18px auto;
+  padding: 0 12px;
 }
 
-.expand-btn:hover {
-  background: #6f4e37;
+/* form */
+.form-section {
+  margin-bottom: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 30px;
-  justify-items: center;
+#toggleFormBtn {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 12px;
 }
-
-.info {
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.date-row {
+#addForm {
   background: #fff;
-  margin: 5px 0;
-  padding: 6px;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  min-width: 260px;
+}
+#addForm.hidden {
+  display: none;
+}
+#addForm label {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+#addForm select,
+#addForm input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #e7e4e2;
+}
+.form-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* controls */
+.controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.qr-reader {
+  width: 200px;
+  max-width: 35vw;
+  display: none;
+}
+.scan-result {
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 8px;
 }
 
-.expand-btn.small {
-  font-size: 12px;
-  padding: 4px 8px;
+/* product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 }
-/* Baris tanggal */
-.date-row {
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #252525;
-  border-radius: 10px;
-  margin-top: 8px;
-  padding: 10px;
-  gap: 6px;
+  transition: transform 0.12s;
 }
-.date-btns {
+.product-card:hover {
+  transform: translateY(-6px);
+}
+.product-img {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+  background: #eee;
+  background-size: contain;
+  background-position: center;
+  margin-bottom: 12px;
+}
+/* add placeholder background per class if you have images */
+.product-img.Americanoice {
+  background-image: url("menu/Americanoice.png");
+}
+.product-img.Matchalatte {
+  background-image: url("menu/Matchalatte.png");
+}
+.product-img.Thaitea {
+  background-image: url("menu/Thaitea.png");
+}
+.product-img.KopisusudisellKSD {
+  background-image: url("menu/KopisusudisellKSD.png");
+}
+.product-img.Butterscothseasalt {
+  background-image: url("menu/Butterscothseasalt.png");
+}
+.product-img.Caramelsalted {
+  background-image: url("menu/Caramelsalted.png");
+}
+.product-img.Chocolatte {
+  background-image: url("menu/Chocolatte.png");
+}
+.product-img.Matchacoconut {
+  background-image: url("menu/Matchacoconut.png");
+}
+.product-img.Vanillalatte {
+  background-image: url("menu/Vanillalatte.png");
+}
+
+/* title */
+.product-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* barcode / qr container */
+.barcode-container {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 6px 0;
+}
+.barcode-container canvas {
+  width: 140px !important;
+  height: 140px !important;
+}
+
+/* buttons */
+.card-actions {
   display: flex;
   gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
 .print-btn {
   display: none;
-  margin-top: 10px;
-  padding: 6px 12px;
-  background-color: #d12a08;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.3s ease;
-}
-.print-btn:hover {
-  background-color: #a51f06;
-}
-.barcode-container.active .print-btn {
-  display: inline-block;
-}
-.print-btn {
-  display: none;
-  margin-top: 10px;
-  padding: 6px 12px;
-  background-color: #d12a08;
+  padding: 8px 12px;
+  background: var(--accent);
   color: #fff;
-  border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s ease;
-}
-.print-btn:hover {
-  background-color: #a51f06;
 }
 .barcode-container.active + .print-btn {
   display: inline-block;
+}
+.small {
+  padding: 6px 8px;
+  font-size: 13px;
+}
+.delete-btn {
+  background: #e74c3c;
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+/* info (dates) */
+.info {
+  width: 100%;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+.date-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #faf7f6;
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: 8px;
+  gap: 8px;
+}
+.date-btns {
+  display: flex;
+  gap: 6px;
+}
+
+/* responsiveness */
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .header-inner {
+    padding-bottom: 8px;
+  }
+}
+@media (max-width: 520px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-actions {
+    gap: 6px;
+  }
+}
+footer {
+  max-width: 1100px;
+  margin: 18px auto;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 0 12px;
+}
+/* === POPUP SCANNER STYLE === */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+}
+
+.popup-overlay.hidden {
+  display: none;
+}
+
+.popup-content {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 20px;
+  width: 90%;
+  max-width: 420px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.camera-box {
+  width: 100%;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.stop-btn {
+  margin-top: 10px;
+  background: #d12a08;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+#reader video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
 }

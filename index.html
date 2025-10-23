@@ -1,73 +1,115 @@
 <!DOCTYPE html>
 <html lang="id">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coffee Manager ☕</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>DISELL Coffee — Manager</title>
+
     <link rel="stylesheet" href="style.css" />
 
-    <!-- Barcode & QR Code -->
-    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
-    <script src="https://unpkg.com/html5-qrcode"></script>
+    <!-- QR library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <!-- QR scanner -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.7/minified/html5-qrcode.min.js"></script>
+    <!-- SheetJS (Excel export) -->
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <!-- html2canvas + jsPDF (PDF export) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   </head>
   <body>
     <header>
-      <button id="resetDataBtn">🗑️ Reset Semua Data</button>
-
-      <h1>Coffee Manager ☕</h1>
-      <p>Kelola produksi kopi dan barcode produkmu!</p>
+      <div class="header-inner">
+        <h1>DISELL COFFEE ☕</h1>
+        <p>Production & Barcode Manager</p>
+        <div class="header-actions">
+          <button id="exportExcelBtn">📥 Export XLSX</button>
+          <button id="exportPdfBtn">📄 Export PDF</button>
+          <button id="downloadJsonBtn">💾 Backup JSON</button>
+          <label class="upload-btn">
+            🔁 Restore
+            <input id="uploadJsonInput" type="file" accept=".json" hidden />
+          </label>
+          <button id="resetDataBtn" class="danger">🧹 Reset Data</button>
+        </div>
+      </div>
     </header>
 
     <main>
-      <!-- Form tambah -->
       <section class="form-section">
         <button id="toggleFormBtn">➕ Tambah Produksi</button>
-
         <form id="addForm" class="hidden">
-          <label for="menu">Pilih Menu:</label>
+          <label for="menu">Pilih Menu</label>
           <select id="menu" required>
             <option value="">-- Pilih Menu --</option>
-            <option value="Americanoice">Americanoice</option>
-            <option value="Butterscothseasalt">Butterscothseasalt</option>
-            <option value="Caramelsalted">Caramelsalted</option>
-            <option value="Chocolatte">Chocolatte</option>
-            <option value="KopisusudisellKSD">Kopisusudisell(KSD)</option>
-            <option value="Matchacoconut">Matchacoconut</option>
-            <option value="Matchalatte">Matchalatte</option>
-            <option value="Thaitea">Thaitea</option>
-            <option value="Vanillalatte">Vanillalatte</option>
+            <option>Americanoice</option>
+            <option>Butterscothseasalt</option>
+            <option>Caramelsalted</option>
+            <option>Chocolatte</option>
+            <option>KopisusudisellKSD</option>
+            <option>Matchacoconut</option>
+            <option>Matchalatte</option>
+            <option>Thaitea</option>
+            <option>Vanillalatte</option>
           </select>
 
+          <label for="qty">Jumlah Produksi</label>
           <input
             type="number"
             id="qty"
             placeholder="Jumlah Produksi"
+            min="1"
             required
           />
-          <button type="submit">Tambah</button>
+
+          <div class="form-actions">
+            <button type="submit">Tambah</button>
+            <button type="button" id="cancelAdd">Batal</button>
+          </div>
         </form>
       </section>
 
-      <!-- Daftar stok -->
-      <section class="list-section">
-        <h2>Daftar Produksi</h2>
-        <div id="productList"></div>
+      <section class="controls">
+        <div class="scan-controls">
+          <button id="startScanBtn">🎬 Mulai Scan</button>
+
+          <div id="scanResult" class="scan-result"></div>
+        </div>
+        <div class="print-all">
+          <button id="printAllBtn">🖨️ Print Semua QR</button>
+        </div>
       </section>
 
-      <!-- Scan Barcode -->
-      <section class="scan-section">
-        <h2>📷 Scan Barcode Produk</h2>
-        <button id="startScanBtn">🎬 Mulai Scan</button>
-        <button id="stopScanBtn" class="hidden">⏹️ Berhenti Scan</button>
-        <div id="reader" class="qr-reader"></div>
-        <div id="scanResult" class="scan-result"></div>
+      <section class="list-section">
+        <h2>Daftar Produksi</h2>
+        <div id="productList" class="product-grid"></div>
       </section>
     </main>
 
-    <!-- script QRCode -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <footer>
+      <small>DISELL Coffee • Local demo (vanilla)</small>
+    </footer>
+    <!-- Tombol scan -->
+    <button id="startScanBtn">📷 Scan Barcode</button>
 
-    <!-- script utama -->
+    <!-- Popup kamera -->
+    <div id="scanPopup" class="hidden popup-overlay">
+      <div class="popup-content">
+        <button id="closeScanBtn" class="close-btn">✕</button>
+        <h3>Scan Barcode</h3>
+        <div id="reader" class="camera-box"></div>
+        <p id="scanResult"></p>
+        <button id="stopScanBtn" class="stop-btn">Berhenti</button>
+      </div>
+    </div>
+
+    <!-- === QR Code Generator === -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <!-- === HTML5 QR Code Scanner === -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <!-- === App JS === -->
     <script src="app.js"></script>
   </body>
 </html>
