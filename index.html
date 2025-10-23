@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Manager ☕</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Barcode & QR Code -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+  </head>
+  <body>
+    <header>
+      <button id="resetDataBtn">🗑️ Reset Semua Data</button>
+
+      <h1>Coffee Manager ☕</h1>
+      <p>Kelola produksi kopi dan barcode produkmu!</p>
+    </header>
+
+    <main>
+      <!-- Form tambah -->
+      <section class="form-section">
+        <button id="toggleFormBtn">➕ Tambah Produksi</button>
+
+        <form id="addForm" class="hidden">
+          <label for="menu">Pilih Menu:</label>
+          <select id="menu" required>
+            <option value="">-- Pilih Menu --</option>
+            <option value="Americanoice">Americanoice</option>
+            <option value="Butterscothseasalt">Butterscothseasalt</option>
+            <option value="Caramelsalted">Caramelsalted</option>
+            <option value="Chocolatte">Chocolatte</option>
+            <option value="KopisusudisellKSD">Kopisusudisell(KSD)</option>
+            <option value="Matchacoconut">Matchacoconut</option>
+            <option value="Matchalatte">Matchalatte</option>
+            <option value="Thaitea">Thaitea</option>
+            <option value="Vanillalatte">Vanillalatte</option>
+          </select>
+
+          <input
+            type="number"
+            id="qty"
+            placeholder="Jumlah Produksi"
+            required
+          />
+          <button type="submit">Tambah</button>
+        </form>
+      </section>
+
+      <!-- Daftar stok -->
+      <section class="list-section">
+        <h2>Daftar Produksi</h2>
+        <div id="productList"></div>
+      </section>
+
+      <!-- Scan Barcode -->
+      <section class="scan-section">
+        <h2>📷 Scan Barcode Produk</h2>
+        <button id="startScanBtn">🎬 Mulai Scan</button>
+        <button id="stopScanBtn" class="hidden">⏹️ Berhenti Scan</button>
+        <div id="reader" class="qr-reader"></div>
+        <div id="scanResult" class="scan-result"></div>
+      </section>
+    </main>
+
+    <!-- script QRCode -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
+    <!-- script utama -->
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,301 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f7f3f0;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  background: #6f4e37;
+  color: white;
+  padding: 20px 0;
+  border-radius: 0 0 20px 20px;
+}
+
+main {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+button {
+  background: #6f4e37;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #523625;
+}
+
+.hidden {
+  display: none;
+}
+
+.list-section {
+  padding: 10px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 10px auto;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 320px;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+}
+
+/* ==== Gambar Menu (tanpa file eksternal) ==== */
+.product-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #6f4e37;
+}
+
+/* Gaya khusus tiap menu */
+.Matchalatte {
+  background: url("menu/Matchalatte.png") no-repeat center;
+  background-size: contain;
+}
+
+.Americanoice {
+  background: url("menu/Americanoice.png") no-repeat center;
+  background-size: contain;
+}
+
+.Butterscothseasalt {
+  background: url("menu/Butterscothseasalt.png") no-repeat center;
+  background-size: contain;
+}
+
+.Caramelsalted {
+  background: url("menu/Caramelsalted.png") no-repeat center;
+  background-size: contain;
+}
+
+.Chocolatte {
+  background: url("menu/Chocolatte.png") no-repeat center;
+  background-size: contain;
+}
+
+.KopisusudisellKSD {
+  background: url("menu/KopisusudisellKSD.png") no-repeat center;
+  background-size: contain;
+}
+
+.Matchacoconut {
+  background: url("menu/Matchacoconut.png") no-repeat center;
+  background-size: contain;
+}
+
+.Thaitea {
+  background: url("menu/Thaitea.png") no-repeat center;
+  background-size: contain;
+}
+
+.Vanillalatte {
+  background: url("menu/Vanillalatte.png") no-repeat center;
+  background-size: contain;
+}
+
+.card-buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.qr-reader {
+  width: 100%;
+  max-width: 350px;
+  margin: 15px auto;
+  display: none;
+}
+
+.scan-result {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #6f4e37;
+}
+.barcode-container {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.barcode-container canvas {
+  width: 120px !important;
+  height: 120px !important;
+}
+
+/* Grid untuk menampilkan menu 3 per baris */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product-card {
+  background: #1a1a1a;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  color: #cc1616;
+  transition: transform 0.2s ease;
+}
+.product-card:hover {
+  transform: scale(1.03);
+}
+/* Gambar produk */
+.product-img {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  background-color: rgb(255, 64, 0);
+}
+/* Tombol */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 6px;
+  background: #d12a08;
+  color: #fff;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+button:hover {
+  background: #ff3b1f;
+}
+button.small {
+  font-size: 12px;
+  padding: 6px 10px;
+}
+button.danger {
+  background: #b30000;
+}
+button.danger:hover {
+  background: #ff0000;
+}
+
+/* Detail tersembunyi */
+.info {
+  background: #f0ebe9;
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.expand-btn {
+  margin-top: 5px;
+  background: #8b5e3c;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.expand-btn:hover {
+  background: #6f4e37;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.info {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.date-row {
+  background: #fff;
+  margin: 5px 0;
+  padding: 6px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expand-btn.small {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+/* Baris tanggal */
+.date-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #252525;
+  border-radius: 10px;
+  margin-top: 8px;
+  padding: 10px;
+  gap: 6px;
+}
+.date-btns {
+  display: flex;
+  gap: 8px;
+}
+.print-btn {
+  display: none;
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #d12a08;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+.print-btn:hover {
+  background-color: #a51f06;
+}
+.barcode-container.active .print-btn {
+  display: inline-block;
+}
+.print-btn {
+  display: none;
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #d12a08;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.print-btn:hover {
+  background-color: #a51f06;
+}
+.barcode-container.active + .print-btn {
+  display: inline-block;
+}
